@@ -1,8 +1,12 @@
 function computeFactors() {
   const num = BigInt(document.getElementById("n").value);
 
-  const factors = primeFactors(num);
-  document.getElementById("output").innerText = "Prime Factors: " + factors.join(", ");
+  const pfactors = primeFactors(num);
+  document.getElementById("output").innerText = "Prime Factors: " + pfactors.join(", ");
+
+  const afactors = allFactors(num);
+  document.getElementById("output-all").innerText = "All Factors: " + afactors.join(", ");
+
 }
 
 function primeFactors(n) {
@@ -30,3 +34,17 @@ function primeFactors(n) {
   return factors;
 }
 
+function allFactors(n) {
+  if (n == 1n) return [];
+
+  const factors = [];
+  const limit = (n % 2n === 0n) ? n/2n : (n-1n)/2n;
+
+  for (let i = 2n; i <= limit; i += 1n) {
+    if (n % i === 0n) {
+      factors.push(i);
+    }
+  }
+
+  return factors;
+}
