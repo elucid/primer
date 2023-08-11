@@ -2,10 +2,10 @@ function computeFactors() {
   const num = BigInt(document.getElementById("n").value);
 
   const pfactors = primeFactors(num);
-  document.getElementById("output").innerText = "Prime Factors: " + pfactors.join(", ");
+  document.getElementById("output").innerHTML = "<b>Prime Factors:</b> " + pfactors.join(", ");
 
   const afactors = allFactors(num);
-  document.getElementById("output-all").innerText = "All Factors: " + afactors.join(", ");
+  document.getElementById("output-all").innerHTML = "<b>All Factors:</b> " + afactors.join(", ");
 
 }
 
